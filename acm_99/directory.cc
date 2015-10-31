@@ -1,0 +1,161 @@
+#include <stdio.h>
+#include <string>
+#include <iostream.h>
+
+struct listing {
+  char name[53];
+  char number[7];
+  char sortname[ 200 ];
+};
+
+char *ones[] = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten" };
+char *tens[] = { "", "ten", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninty" };
+char *teens[] = { "", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+
+string createSubhundred( int n ) {
+  string ret = "";
+
+  cout << n << endl;
+
+  if ( n > 100 ) {
+    ret += ones[ n / 100 ];
+    ret += " hundred ";
+    n %= 100;
+  }
+
+  if ( n > 20 ) {
+    ret += tens[ n / 10 ];
+    if ( n % 10 != 0 ) {
+      ret += " ";
+      ret += ones[ n % 10 ];
+    }
+  } else if ( n < 10 ) {
+    ret += ones[ n ];
+  } else {
+    ret += teens[ n - 10 ];
+  }
+
+  ret += " ";
+
+  return ret;
+}
+
+string createName( int n ) {
+  string ret = "";
+
+  cout << n << endl;
+
+  if ( n > 1000000 ) {
+    ret += createSubhundred( n / 1000000 );
+    n %= 1000000;
+    ret += "million ";
+  } 
+
+  if ( n > 1000 ) {
+    ret += createSubhundred( n / 1000 );
+    ret += "thousand ";
+    n %= 1000;
+  } 
+
+  ret += createSubhundred( n );
+
+  return ret;
+}
+
+
+void createSortname( char *sname, char *name ) {
+  char *p, *dst;
+  int wbreak;
+  int num;
+  int capword[80], cappos = 0;
+  int j;
+  string tmp;
+
+  dst = sname;
+  num = 0;
+  for( p = name; *p != 0; p++ ) {
+    if ( wbreak && *p <= 'Z' && *p >= 'A' ) {
+      capword[ cappos++ ] = *p;
+
+    } else if ( *p <= '9' && *p >= '0' ) {
+      num = num * 10 + *p - '0';
+    } else if ( (*p <= 'z' && *p >= 'a') || (*p <= 'Z' && *p >= 'A') ) {
+      wbreak = 0;
+      if ( cappos != 0 ) {
+        for( j = 0; j < cappos; j++ ) {
+	  *dst = capword[ j ];
+	  dst++;
+	}
+        cappos = 0;
+      }
+      *dst = *p;
+      dst++;
+    } else {
+      if ( cappos != 0 ) {
+        for( j = 0; j < cappos; j++ ) {
+	  *dst = capword[ j ];
+	  dst++;
+	  *dst = ' ';
+	  dst++;
+	}
+        cappos = 0;
+      }
+      *dst = ' ';
+      dst++;
+      wbreak = 1;
+      cappos = 0;
+
+      if ( num != 0 ) {
+	tmp = createName( num );
+	strcpy( dst, tmp.c_str() );
+	dst += strlen( tmp.c_str() );
+	num = 0;
+      }
+    }     
+  }
+
+  if ( cappos != 0 ) {
+    for( j = 0; j < cappos; j++ ) {
+      *dst = capword[ j ];
+      dst++;
+      *dst = ' ';
+      dst++;
+    }
+    cappos = 0;
+  }
+
+  if ( num != 0 ) {
+    tmp = createName( num );
+    strcpy( dst, tmp.c_str() );
+    dst += strlen( tmp.c_str() );
+  }
+}
+
+int qcompare( void *l1, void *l2 ) {
+
+}
+
+void main( void ) {
+  struct listing everyone[ 1000 ];
+  char c;
+  int i, j;
+
+  for( i = 0; ! feof( stdin ); i++ ) {
+    for( j = 0; j < 7; j++ )
+      everyone[ i ].number[ j ] = getchar();
+
+    for( j = 0; j < 52 && (c = getchar()) != '\n'; j++ )
+      everyone[ i ].name[ j ] = c;
+
+    while( c != '\n' )
+      c = getchar();
+
+    createSortname( everyone[ i ].sortname, everyone[ i ].name );
+  }
+
+  qsort( everyone, i, sizeof( struct listing ), qcompare );
+
+  for( j = 0; j < i; j++ ) {
+    printf( "%52s    %s\n", everyone[j].name, everyone[j].number );
+  }
+}

@@ -1,0 +1,70 @@
+SIGSEGV   11*  segmentation violation
+	stackbase=0xbffff788, stackpointer=0xbfffe738
+
+Full thread dump:
+    "AWT-Motif" (TID:0x406766e0, sys_thread_t:0x4147bf28, state:MW) prio=5
+	java.lang.Thread.run(Thread.java)
+    "AWT-Input" (TID:0x406766c0, sys_thread_t:0x4145af28, state:MW) prio=5
+    "AWT-EventQueue-0" (TID:0x406766a8, sys_thread_t:0x41439f28, state:CW) prio=5
+	java.lang.Object.wait(Object.java)
+	java.awt.EventQueue.getNextEvent(EventQueue.java:118)
+	java.awt.EventDispatchThread.run(EventDispatchThread.java:55)
+    "thread applet-ChessWorldApplet.class" (TID:0x40675938, sys_thread_t:0x41418f28, state:CW) prio=4
+	java.lang.Object.wait(Object.java)
+	sun.applet.AppletPanel.getNextEvent(AppletPanel.java:220)
+	sun.applet.AppletPanel.run(AppletPanel.java:244)
+	java.lang.Thread.run(Thread.java)
+    "Finalizer thread" (TID:0x40669220, sys_thread_t:0x413f7f28, state:CW) prio=1
+    "Async Garbage Collector" (TID:0x406691d8, sys_thread_t:0x413d6f28, state:CW) prio=1
+    "Idle thread" (TID:0x40669190, sys_thread_t:0x413b5f28, state:R) prio=0
+    "Clock" (TID:0x406690d0, sys_thread_t:0x41394f28, state:CW) prio=12
+    "main" (TID:0x406690a8, sys_thread_t:0x8201948, state:R) prio=5 *current thread*
+	sun.awt.motif.MFramePeer.<init>(MFramePeer.java:59)
+	sun.awt.motif.MToolkit.createFrame(MToolkit.java:120)
+	java.awt.Frame.addNotify(Frame.java:139)
+	java.awt.Window.pack(Window.java:113)
+	sun.applet.AppletViewer.<init>(AppletViewer.java:202)
+	sun.applet.StdAppletViewerFactory.createAppletViewer(AppletViewer.java:87)
+	sun.applet.AppletViewer.parse(AppletViewer.java:934)
+	sun.applet.AppletViewer.parse(AppletViewer.java:900)
+	sun.applet.AppletViewer.main(AppletViewer.java:1077)
+Monitor Cache Dump:
+    sun.applet.AppletViewerPanel@1080514080/1081026256: <unowned>
+	Waiting to be notified:
+	    "thread applet-ChessWorldApplet.class"
+    sun.awt.motif.MToolkit@1080518184/1081045768: owner "main" (0x8201948, 1 entry)
+	Waiting to enter:
+	    "AWT-Input"
+	    "AWT-Motif"
+    <unknown key> (0x0x413d6f28): <unowned>
+	Waiting to be notified:
+	    "Async Garbage Collector"
+    java.awt.EventQueue@1080518232/1081046008: <unowned>
+	Waiting to be notified:
+	    "AWT-EventQueue-0"
+Registered Monitor Dump:
+    Thread queue lock: <unowned>
+    Name and type hash table lock: <unowned>
+    String intern lock: <unowned>
+    JNI pinning lock: <unowned>
+    JNI global reference lock: <unowned>
+    BinClass lock: <unowned>
+    Class loading lock: <unowned>
+    Java stack lock: <unowned>
+    Code rewrite lock: <unowned>
+    Heap lock: <unowned>
+    Has finalization queue lock: <unowned>
+    Finalize me queue lock: <unowned>
+	Waiting to be notified:
+	    "Finalizer thread"
+    Monitor IO lock: <unowned>
+    Child death monitor: <unowned>
+    Event monitor: <unowned>
+    I/O monitor: <unowned>
+    Alarm monitor: <unowned>
+	Waiting to be notified:
+	    "Clock"
+    Monitor cache expansion lock: <unowned>
+    Monitor registry: owner "main" (0x8201948, 1 entry)
+Thread Alarm Q:
+    sys_thread_t 0x413d6f28   [Timeout in 623 ms]

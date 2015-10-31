@@ -1,0 +1,76 @@
+%-----------------------------------------
+% Keith Peters 
+% Resumé
+%
+% URL: ...
+%-----------------------------------------
+
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt,letterpaper,final]{moderncv}
+\usepackage{fontspec}
+\moderncvtheme[darkred]{classic}
+
+% DOCUMENT LAYOUT
+\usepackage[scale=0.85]{geometry}
+\setlength{\hintscolumnwidth}{2cm}
+\AtBeginDocument{\recomputelengths}
+% FONTS
+\usepackage[utf8]{inputenc}
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+
+% Remove % to set to different fonts
+%\setromanfont [Ligatures={Common},Numbers={OldStyle}]{Adobe Caslon Pro}
+%\setmonofont[Scale=0.8]{Monaco} 
+
+% ---- CUSTOM AMPERSAND
+\newcommand{\amper}{{\fontspec[Scale=.95]{Adobe Caslon Pro}\selectfont\itshape\&}}
+
+% ---- MARGIN YEARS
+%\newcommand{\years}[1]{\marginpar{\scriptsize #1}}
+
+
+% PDF SETUP
+% ---- FILL IN HERE THE DOC TITLE AND AUTHOR
+
+
+% Personal Information 
+\firstname{Keith}
+\familyname{Peters}
+\address{761 Tehama St #2}{San Francisco, CA 94103}
+\mobile{(415) 963-1202}
+\email{keith@monkeynova.com}
+%\homepage{www.derefnull.com/about}
+
+\title{Keith Peters' Resume}
+
+\nopagenumbers{}
+
+\begin{document}
+
+\maketitle
+
+\section{Employment}
+\cventry{July 2007 - September 2014}{Blekko}{Redwood City, CA}{}{
+    \begin{itemize}
+       \item ...
+    \end{itemize}
+  }
+\cventry{April 2004 - June 2007}{Topix}{Palo Alto, CA}{}{
+    \begin{itemize}
+      \item ...
+    \end{itemize}
+  }
+\cventry{June 2000 - April 2004}{America Online}{Mountain View, CA}{
+    \begin{itemize}
+      \item ...
+    \end{itemize}
+  }
+\section{Education}
+\cventry{June 1996 - June 2000}{California Institute of Technology}{Pasadena, CA}
+\section{Computer Skills} 
+  \cvline{Languages:}{Perl, C/C++, ...}
+\section{Extra}
+  \cvlistitem{...}
+\end{document}

@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <local/cs1.h>
+#include "scanf.c"
+
+#define MAX 65535
+
+unsigned int colors[8][3]={
+     MAX,MAX,MAX,
+     0,0,MAX,
+     0,MAX,0,
+     MAX,0,0,
+     0,0,0,
+     MAX,MAX,0,
+     MAX,0,MAX,
+     0,MAX,MAX}
+
+int color;
+
+void main() {
+  CS1_Window mw, palette;
+  mw=cs1_make_window("white",100,100,270,270);
+  palette=cs1_make_window("white",370,100,50,270);
+
+  color=0;
+  
+  for (t=0;t<8;t++) {
+    Set_Color(t);
+    cs1_fill_box(palette,0,(t+1)*30+1,50,(t+2)*30-1);
+  }
+  
+  Set_Color(color);
+  cs1_fill_box(palette,0,1,50,29);
+  while(!cs1_inkey()) {
+    if (cs1_mouse_button(mw,cs1_left_button)) Draw_Circle(mw,cs1_mouse_x(mw),cs1_mouse_y(mw));
+    if (cs1_mouse_button(mw,cs1_right_button)) Draw_Square(mw,cs1_mouse_x(mw),cs1_mouse_y(mw));
+    if (cs1_mouse_button(mw,cs1_middle_button)) Draw_Text(mw,cs1_mouse_x(mw),cs1_mouse_y(mw)); 
+  }
+
+}
+
+void Set_Color(int c){
+  cs1_set_rgb(color[c][0],color[c][1],color[c][2]);
+}
+
+void Draw_Circle(CS1_Window w,int x,int y) {
+  cs1_draw_circle(w,x,y,3);
+}
+
+void Draw_Square(CS1_Window w,int x, int y) {
+  cs1_draw_line(w,x-3,y-3,x+3,y-3);
+  cs1_draw_line(w,x-3,y-3,x-3,y+3);
+  cs1_draw_line(w,x-3,y+3,x+3,y+3);
+  cs1_draw_line(w,x+3,y+3,x+3,y-3);
+
+}
+
+void Draw_Text(CS1_Window w,int x,int y) {
+  char string[256];
+  cs1_scanf("Enter text","%s",string);
+  cs1_printf(w,x,y,string);
+}

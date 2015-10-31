@@ -1,0 +1,5 @@
+<html>
+<body>
+<img height=100% src="<!--#echo var="QUERY_STRING"-->">
+</body>
+</html>

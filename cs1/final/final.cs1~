@@ -1,0 +1,49 @@
+1.1 
+  Choice 5 would be best. This would allow the new talent and new perspective
+  to help to solve the lingering problems that otherwise might not be solved,
+  but since these people need to be trained and need to understand the problem
+  it is also necessary to gain more time for the problem.
+
+  Choice 4 would be the worst. You need people that are familiar with the
+  program and understand its workings. To just get rid of them not only loses
+  this expertise but also cuts down on the number of man-hours working on the
+  problem.
+
+1.2
+  Choice 2.
+
+1.3
+  Choice 2. You need to provide a cohesive effort and this is best done through
+  an aristrocratic system where there is a few people saying what should be
+  done and the rest doing the actual work. This allows the project to work well
+  with itself.
+
+1,4
+  Choice 2. By using a less efficient algorithm in some aspect of the program,
+  you do not create any bugs which would be horrible to have in anything
+  released publicly, even a prototype. You also will be able to understand the
+  code because it will still be well documented. The only thing you sacrifice
+  is some speed, which can be fixed later with a more efficient algorithm.
+
+1.5
+  I would go with Choice 2. There is no time constraint so that would not be a
+  consideration, though choice 1 would be faster to implement. However by 
+  completely redesigning the program you are assured that the new functions
+  will handle the spreadsheets correctly, and it will be easier to modfy in
+  the future.
+
+2.1
+  a) Fib(n)=Fib(n-1)+Fib(n-2);Fib(1)=1;Fib(2)=1;
+  b) int Fib(int n) {
+       if (n<1) return -1;
+       if (n==1 || n==2) return 1;
+       return (Fib(n-1)+Fib(n-2));
+     }
+  c) In each case the function calls are with an n that is constantly
+     decreasing. The function terminates at n<=2, so as n decreases it gets
+     closer to termination.
+  d) n
+  e) This function will give the correct value for any n>=1 because it is
+     straight from the recurrence relation given in section a.
+
+2.2

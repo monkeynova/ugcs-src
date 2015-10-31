@@ -1,0 +1,23 @@
+Documentation for lab #3 by Keith Peters.
+
+When compiling, the command gcc -Wall draw.c -o _____ -lcs1 -lm will work
+well. Note: you must include the math library.
+
+While the program runs clicking in the window will activate whatever mode
+you are in. Clicking in the palette window changes the working color.
+Clicking in the box with circles will choose the radius of what you draw.
+For the mode and radius, the highlighted selection is the working 
+value. For the palette, the upper box is the color of the current working
+color. There are five modes. Circle, Square, Text, Line, and Spray Paint. 
+Circle, Square, and Spray Paint are easily figured out by playing with them.
+Line mode will continually draw from the last place clicked to the next place
+clicked by the left mouse button. To turn off the mode you must click the right
+mouse button. As for text entry, the prompt is on the command line and it
+has the bugs present because of the cs1 library. Ah, well, nothing's perfect.
+
+To quit simply hit return in the main window and exit your current mode 
+(i.e. if in line mode hit the right button, if in text hit enter at the 
+command prompt)
+
+That should do it, sorry about the horrible state that the code is in, but 
+what do you expect from someone from 12-2 in the morning.

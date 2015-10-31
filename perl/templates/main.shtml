@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <style>
+div.mainimg {
+  display : none;
+}
+    </style>
+  </head>
+  <body>
+    <hr>
+    <center>
+BEGIN_LOOP
+      <div id="div_$_{file}" class="mainimg">
+        <img id="img_$_{file}" src="" height=80%>
+      </div>
+END_LOOP
+    </center>
+  </body>
+</html>

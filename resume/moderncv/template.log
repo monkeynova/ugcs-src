@@ -1,0 +1,15 @@
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=pdftex 2012.9.14)  22 SEP 2014 14:43
+entering extended mode
+**examples/template.tex
+(./examples/template.tex
+! Undefined control sequence.
+l.9 \documentclass
+                  [11pt,a4paper,sans]{moderncv}        % possible options in...
+
+? 
+! Emergency stop.
+l.9 \documentclass
+                  [11pt,a4paper,sans]{moderncv}        % possible options in...
+End of file on the terminal!
+
+No pages of output.

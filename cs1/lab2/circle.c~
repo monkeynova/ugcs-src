@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <local/cs1.h>
+#include <math.h>
+
+#define PI 3.1415926535898
+#define MAXCOLOR 65535
+
+void main() {
+  int r,dot_num,dot_r;
+  float theta;
+  float length;
+  int x,y;
+  int cr,cg,cb;
+  CS1_Window mw;
+  printf("What should the radius be? ");
+  scanf("%d",&r); 
+  printf("How many dots do you want? ");
+  scanf("%d",&dot_num);
+  printf("What should the radius of the dots be? ");
+  scanf("%d",&dot_r);
+  if (r<20||r>300){
+    printf("Invalid radius \(Must be between 20 and 300\).\n");
+    exit(0);
+  }
+  if (dot_num<0) {
+    printf("Invalid number of dots \(Must be > 0\).\n");
+    exit(0);
+  }
+  if (dot_r<0 || dot_r>10) {
+    printf("Invalid dot radius \(Must be between 0 and 10\).\n");
+    exit(0);
+  }
+  mw=cs1_make_window("white",100,100,2*r+20,2*r+20);
+ 
+/* Circle */
+  for (theta=0;theta<360;theta+=360/(float)dot_num) {
+    cr=(360-theta)*MAXCOLOR/360;
+    cg=abs(180-theta)*MAXCOLOR/180;
+    cb=theta*MAXCOLOR/360;
+    cs1_set_rgb(cr,cg,cb);
+    x=(r+10)+r*cos(theta*PI/180);
+    y=(r+10)+r*sin(theta*PI/180);
+    cs1_fill_circle(mw,x,y,dot_r);
+  } 
+  while (cs1_inkey()=='\0');
+
+/* Square */
+  if (dot_num%4==0) {
+    cs1_set_rgb(MAXCOLOR,MAXCOLOR,MAXCOLOR);
+    cs1_fill_box(mw,0,0,2*r+20,2*r+20);
+    length=2*r/(dot_num/4-1);
+    for (x=0;x<2*r-length;x+=length) {
+      cs1_set_rgb(MAXCOLOR*x/(2*r),0,MAXCOLOR*(2*r-x)/(2*r));
+      cs1_fill_circle(mw,10+x,10,dot_r);
+      cs1_fill_circle(mw,10+x+length,10+2*r,dot_r);
+      cs1_fill_circle(mw,10+2*r,10+x,dot_r);
+      cs1_fill_circle(mw,10,10+x+length,dot_r); 
+    }
+    while(cs1_inkey()=='\0');
+  }
+}

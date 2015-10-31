@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <local/cs1.h>
+
+main() {
+  CS1_Window mw;
+  mw=cs1_make_window("white",100,100,200,200);
+  
+  while(!cs1_inkey()) {
+    if (cs1_mouse_button(mw,cs1_left_button)) Draw_Circle(mw,cs1_mouse_x(mw),cs1_mouse_y(mw));
+    if (cs1_mouse_button(mw,cs1_right_button)) Draw_Square(mw,cs1_mouse_x(mw),cs1_mouse_y(mw));
+    if (cs1_mouse_button(mw,cs1_middle_button)) Draw_Text(mw,cs1_mouse_x(mw),cs1_mouse_y(mw)); 
+  }
+
+}
+
+Draw_Circle(CS1_Window w,int x,int y) {
+  cs1_draw_circle(w,x,y,3);
+}
+
+Draw_Square(CS1_Window w,int x, int y) {
+  cs1_draw_line(w,x-3,y-3,x+3,y-3);
+  cs1_draw_line(w,x-3,y-3,x-3,y+3);
+  cs1_draw_line(w,x-3,y+3,x+3,y+3);
+  cs1_draw_line(w,x+3,y+3,x+3,y-3);
+
+}
+
+Draw_Text(CS1_Window w,int x,int y) {
+  char string[256];
+  cs1_printf(w,x,y,"Text");
+}

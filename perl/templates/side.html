@@ -1,0 +1,28 @@
+<HTML>
+<head>
+<script language="JavaScript">
+<!--
+var lastDiv = null;
+
+function setDiv( imgName ) {
+  var div = parent.main.document.getElementById( "div_" + imgName ); 
+  var img = parent.main.document.getElementById( "img_" + imgName );
+
+  if ( lastDiv != null ) {
+    lastDiv.style.display = "none"
+  }
+  div.style.display = "block";
+  img.src = imgName;
+
+  lastDiv = div;
+}
+
+//-->
+</script>
+</head>
+<BODY>
+BEGIN_LOOP
+<a onclick="setDiv('$_{file}'); return false;" href=""><img src="thumb_$_{file}"></a><br>
+$_{title}<br>
+END_LOOP
+</BODY></HTML>

@@ -1,0 +1,14 @@
+<HTML>
+<head>
+<link rel="stylesheet" href="main.css" type="text/css">
+</head>
+<BODY>
+BEGIN_LOOP
+<a onclick="parent.setImageByName( '$_{file}' ); return false;" href=""><img width="$_{thumb_width}" height="$_{thumb_height}" src="$_{thumbfile}" border=0></a><p>
+END_LOOP
+<script language="JavaScript">
+<!--
+parent.init();
+//-->
+</script>
+</BODY></HTML>

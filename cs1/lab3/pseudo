@@ -1,0 +1,8 @@
+Pseudocode for lab 3
+Keith Peters
+
+Initialize everything,
+Create Subroutines to handle each mouse input,
+Create main with a while loop and if statements that will call the 
+subroutines as needed.
+Run it

@@ -1,0 +1,8 @@
+Pseaudocode for Lab 2 by Keith Peters
+
+Prompt user for information.
+Create Window.
+Go from 0-360 in 360/number of dots increments.
+Draw the dots.
+While loop until user hits a key to quit.
+

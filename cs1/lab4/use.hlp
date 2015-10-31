@@ -1,0 +1,10 @@
+Dave,
+
+For the file sheet.c be sure to include cs1 and m at compile time as well as
+scanf.c. Once running, use the left button to pull up your operation choices.
+Use the right button to pull up the string parser. It accepts RxCy format to
+enter the values of a specified entry.
+
+Enjoy.
+
+Keith

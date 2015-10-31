@@ -1,0 +1,51 @@
+<html>
+  <head>
+  <link rel="stylesheet" href="main.css" type="text/css">
+  </head>
+  <body>
+    <div class="greybar">
+      <table width="100%"><tr>
+        <td align=left>
+          <div id="titlebar">
+            <a href="http://www.ugcs.net/~peters/" target="_top">Home</a> &gt $global{parent} &gt $global{title} ($global{total})
+          </div>
+        </td>
+        <td align=right>
+          <div id="slideshowstart" class="slideshowbox">
+            <a href="" onclick="parent.startslideshow(); return false;">Slideshow</a>
+          </div>
+          <div id="slideshowprogress" class="slideshowbox">
+            <div id="slideshowfill">&nbsp;</div>
+            <div id="slideshowstop">
+              <a href="" onclick="parent.stopslideshow(); return false;">Stop</a>
+            </div>
+            &nbsp;
+          </div>
+        </td>
+      </tr></table>
+    </div>
+
+BEGIN_LOOP
+    <div id="div_$_{file}" align="center" class="imgdiv">
+      <table width="$_{width}" class="navigate"><tr><td align=left>
+        <a href="" onclick="parent.prev();return false;">&lt;&lt;Prev</a>
+      </td><td align=right>
+        <a href="" onclick="parent.next();return false;">Next&gt;&gt;</a>
+      </td></tr></table>
+      <br>
+      <img width="$_{width}" height="$_{height}" id="img_$_{file}" border=0 src="">
+      <br>
+      $_{title} ($_{time})
+      <p>
+
+      <div class="copyright">Copyright Keith Peters 2003</div>
+    </div>
+END_LOOP
+
+  </body>
+  <script language="JavaScript">
+<!--
+parent.init();
+//-->
+  </script>
+</html>
